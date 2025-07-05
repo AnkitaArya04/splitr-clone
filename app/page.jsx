@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
             Track shared expenses, split bills effortlessly, and settle up
             quickly. Never worry about who owes who again.
           </p>
-          <div>
+          <div className="flex flex-col items-center gap-4 sm:flex-row justify-center">
             <Button
               asChild
               size="lg"
@@ -37,6 +38,18 @@ export default function Home() {
             >
               <Link href="#how-it-works">See How It Works</Link>
             </Button>
+          </div>
+        </div>
+        <div className="container mx-auto max-w-5xl overflow-hidden rounded-xl shadow-xl">
+          <div className="gradient p-1 aspect-[16/9]">
+            <Image
+              src="/hero.png"
+              width={1280}
+              height={720}
+              alt="Banner"
+              className="rounded-lg mx-auto"
+              priority
+            />
           </div>
         </div>
       </section>
