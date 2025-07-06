@@ -37,9 +37,13 @@ const ContactsPage = () => {
             <User className="mr-2 h-5 w-5" />
             People
           </h2>
+          
         </div>
         <div>
-
+           <h2 className="text-xl font-bold mb-4 flex items-center">
+            <Users className="mr-2 h-5 w-5" />
+            Groups
+          </h2>
         </div>
       </div>
     </div>
