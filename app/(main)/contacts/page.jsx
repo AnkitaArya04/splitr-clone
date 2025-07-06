@@ -1,7 +1,11 @@
 "use client"
+import { useQuery} from 'convex/react'
+import { api } from '@/convex/_generated/api'
 import React from 'react'
 
-const ContactPage = () => {
+const ContactsPage = () => {
+  const data=useQuery(api.contacts.getAllContacts);
+  console.log(data)
   return (
     <div>
       ContactPage
@@ -9,4 +13,4 @@ const ContactPage = () => {
   )
 }
 
-export default ContactPage
+export default ContactsPage
