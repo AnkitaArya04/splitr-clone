@@ -1,3 +1,7 @@
-import { query, mutation } from "./_generated/server";
-import { v } from "convex/values";
-import { internal } from "./_generated/api";
+import { query } from "./_generated/server";
+
+export const getAllContacts=query({
+    handler:()=>{
+        
+    }
+})
