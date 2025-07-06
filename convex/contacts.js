@@ -37,5 +37,29 @@ export const getAllContacts=query({
       });
     });
 
+    const contactUsers = await Promise.all(
+      [...contactIds].map(async (id) => {
+        const u = await ctx.db.get(id);
+        return u
+          ? {
+              id: u._id,
+              name: u.name,
+              email: u.email,
+              imageUrl: u.imageUrl,
+              type: "user",
+            }
+          : null;
+      })
+    );
+
+     const userGroups = (await ctx.db.query("groups").collect())
+      .filter((g) => g.members.some((m) => m.userId === currentUser._id))
+      .map((g) => ({
+        id: g._id,
+        name: g.name,
+        description: g.description,
+        memberCount: g.members.length,
+        type: "group",
+      }));
     }
 })
