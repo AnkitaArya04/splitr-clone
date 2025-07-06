@@ -61,5 +61,10 @@ export const getAllContacts=query({
         memberCount: g.members.length,
         type: "group",
       }));
+
+      contactUsers.sort((a, b) => a?.name.localeCompare(b?.name));
+    userGroups.sort((a, b) => a.name.localeCompare(b.name));
+
+    return { users: contactUsers.filter(Boolean), groups: userGroups };
     }
 })
