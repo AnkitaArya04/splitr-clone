@@ -27,5 +27,15 @@ export const getAllContacts=query({
 
     const personalExpenses = [...expensesYouPaid, ...expensesNotPaidByYou];
 
+     const contactIds = new Set();
+    personalExpenses.forEach((exp) => {
+      if (exp.paidByUserId !== currentUser._id)
+        contactIds.add(exp.paidByUserId);
+
+      exp.splits.forEach((s) => {
+        if (s.userId !== currentUser._id) contactIds.add(s.userId);
+      });
+    });
+
     }
 })
