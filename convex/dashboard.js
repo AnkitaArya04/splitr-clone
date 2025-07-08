@@ -245,7 +245,7 @@ export const getUserGroups = query({
         settlements.forEach((settlement) => {
           if (settlement.paidByUserId === user._id) {
             // User paid someone
-            
+            balance += settlement.amount;
           } else {
             // Someone paid the user
             balance -= settlement.amount;
