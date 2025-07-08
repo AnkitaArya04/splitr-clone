@@ -252,7 +252,10 @@ export const getUserGroups = query({
           }
         });
 
-       
+        return {
+          ...group,
+          id: group._id,
+          balance,
         };
       })
     );
