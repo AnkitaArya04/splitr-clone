@@ -260,6 +260,6 @@ export const getUserGroups = query({
       })
     );
 
-    // return enhancedGroups;
+    return enhancedGroups;
   },
 });
