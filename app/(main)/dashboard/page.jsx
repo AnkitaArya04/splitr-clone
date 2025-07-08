@@ -56,8 +56,15 @@ export default function Dashboard() {
               </Link>
             </Button>
           </div>
-          <div>
-            
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+         <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted-foreground">
+                  Total Balance
+                </CardTitle>
+              </CardHeader>
+              <CardContent></CardContent>
+              </Card>
           </div>
                   </>
       )}
