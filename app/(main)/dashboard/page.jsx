@@ -63,7 +63,28 @@ export default function Dashboard() {
                   Total Balance
                 </CardTitle>
               </CardHeader>
-              <CardContent></CardContent>
+              <CardContent>
+                <div className="text-2xl font-bold">
+                  {balances?.totalBalance > 0 ? (
+                    <span className="text-green-600">
+                      +${balances?.totalBalance.toFixed(2)}
+                    </span>
+                  ) : balances?.totalBalance < 0 ? (
+                    <span className="text-red-600">
+                      -${Math.abs(balances?.totalBalance).toFixed(2)}
+                    </span>
+                  ) : (
+                    <span>$0.00</span>
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {balances?.totalBalance > 0
+                    ? "You are owed money"
+                    : balances?.totalBalance < 0
+                      ? "You owe money"
+                      : "All settled up!"}
+                </p>
+              </CardContent>
               </Card>
           </div>
                   </>
