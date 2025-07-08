@@ -248,7 +248,7 @@ export const getUserGroups = query({
             balance += settlement.amount;
           } else {
             // Someone paid the user
-            balance -= settlement.amount;
+            // balance -= settlement.amount;
           }
         });
 
