@@ -17,7 +17,7 @@ import Link from "next/link";
 // import { BalanceSummary } from "./components/balance-summary";
 // import { GroupList } from "./components/group-list";
 
-const DashboardPage = () => {
+export default function Dashboard() {
   const { data: balances, isLoading: balancesLoading } = useConvexQuery(
     api.dashboard.getUserBalances
   );
@@ -33,17 +33,34 @@ const DashboardPage = () => {
   const { data: monthlySpending, isLoading: monthlySpendingLoading } =
     useConvexQuery(api.dashboard.getMonthlySpending);
 
-    const isLoading =
+  const isLoading =
     balancesLoading ||
     groupsLoading ||
     totalSpentLoading ||
     monthlySpendingLoading;
 
   return (
-    <div>
-      DashboardPage
+    <div className="container mx-auto py-6 space-y-6">
+      {isLoading ? (
+        <div className="w-full py-12 flex justify-center">
+          <BarLoader width={"100%"} color="#36d7b7" />
+        </div>
+      ) : (
+        <>
+          <div className="flex  justify-between flex-col sm:flex-row sm:items-center gap-4">
+            <h1 className="text-5xl gradient-title">Dashboard</h1>
+            <Button asChild>
+              <Link href="/expenses/new">
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Add expense
+              </Link>
+            </Button>
+          </div>
+          <div>
+            
+          </div>
+                  </>
+      )}
     </div>
-  )
+  );
 }
-
-export default DashboardPage
