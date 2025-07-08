@@ -13,9 +13,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { PlusCircle, Users, CreditCard, ChevronRight } from "lucide-react";
 import Link from "next/link";
-// import { ExpenseSummary } from "./components/expense-summary";
-// import { BalanceSummary } from "./components/balance-summary";
-// import { GroupList } from "./components/group-list";
+import { ExpenseSummary } from "./components/expense-summary";
+import { BalanceSummary } from "./components/balance-summary";
+import { GroupList } from "./components/group-list";
 
 export default function Dashboard() {
   const { data: balances, isLoading: balancesLoading } = useConvexQuery(
@@ -56,8 +56,10 @@ export default function Dashboard() {
               </Link>
             </Button>
           </div>
+
+          {/* Balance overview cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-         <Card>
+            <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">
                   Total Balance
@@ -85,8 +87,9 @@ export default function Dashboard() {
                       : "All settled up!"}
                 </p>
               </CardContent>
-              </Card>
-               <Card>
+            </Card>
+
+            <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">
                   You are owed
@@ -101,7 +104,8 @@ export default function Dashboard() {
                 </p>
               </CardContent>
             </Card>
-             <Card>
+
+            <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">
                   You owe
@@ -128,17 +132,66 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Main dashboard content */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                 <div className="lg:col-span-2 space-y-6">
+            {/* Left column */}
+            <div className="lg:col-span-2 space-y-6">
               {/* Expense summary */}
               <ExpenseSummary
                 monthlySpending={monthlySpending}
                 totalSpent={totalSpent}
               />
             </div>
-            
+
+            {/* Right column */}
+            <div className="space-y-6">
+              {/* Balance details */}
+              <Card>
+                <CardHeader className="pb-3">
+                  <div className="flex items-center justify-between">
+                    <CardTitle>Balance Details</CardTitle>
+                    <Button variant="link" asChild className="p-0">
+                      <Link href="/contacts">
+                        View all
+                        <ChevronRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <BalanceSummary balances={balances} />
+                </CardContent>
+              </Card>
+
+              {/* Groups */}
+              <Card>
+                <CardHeader className="pb-3">
+                  <div className="flex items-center justify-between">
+                    <CardTitle>Your Groups</CardTitle>
+                    <Button variant="link" asChild className="p-0">
+                      <Link href="/contacts">
+                        View all
+                        <ChevronRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <GroupList groups={groups} />
+                </CardContent>
+                <CardFooter>
+                  <Button variant="outline" asChild className="w-full">
+                    <Link href="/contacts?createGroup=true">
+                      <Users className="mr-2 h-4 w-4" />
+                      Create new group
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </div>
           </div>
-                  </>
+        </>
       )}
     </div>
   );
