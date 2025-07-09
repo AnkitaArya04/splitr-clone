@@ -54,13 +54,13 @@ export default defineSchema({
   // Groups
   groups: defineTable({
     name: v.string(),
-    description: v.optional(v.string()),
-    createdBy: v.id("users"), // Reference to users table
-    members: v.array(
-      v.object({
-        userId: v.id("users"), // Reference to users table
-        role: v.string(), // "admin" or "member"
-        joinedAt: v.number(),
+    // description: v.optional(v.string()),
+    // createdBy: v.id("users"), // Reference to users table
+    // members: v.array(
+    //   v.object({
+    //     userId: v.id("users"), // Reference to users table
+    //     role: v.string(), // "admin" or "member"
+    //     joinedAt: v.number(),
       })
     ),
   }),
