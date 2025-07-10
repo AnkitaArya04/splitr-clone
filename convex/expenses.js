@@ -143,11 +143,11 @@ export const getExpensesBetweenUsers = query({
       }
     }
 
-    for (const s of settlements) {
-      if (s.paidByUserId === me._id)
-        balance += s.amount; // I paid them back
-      else balance -= s.amount; // they paid me back
-    }
+    // for (const s of settlements) {
+    //   if (s.paidByUserId === me._id)
+    //     balance += s.amount; // I paid them back
+    //   else balance -= s.amount; // they paid me back
+    // }
 
     /* ───── 5. Return payload ───────────────────────────────────────── */
     const other = await ctx.db.get(userId);
