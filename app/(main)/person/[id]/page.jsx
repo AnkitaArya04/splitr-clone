@@ -14,10 +14,10 @@ import { PlusCircle, ArrowLeftRight, ArrowLeft } from "lucide-react";
 import { ExpenseList } from "@/components/expense-list";
 import { SettlementList } from "@/components/settlement-list";
 
-export default function PersonExpensesPage() {
-  const params = useParams();
-  const router = useRouter();
-  const [activeTab, setActiveTab] = useState("expenses");
+// export default function PersonExpensesPage() {
+//   const params = useParams();
+//   const router = useRouter();
+//   const [activeTab, setActiveTab] = useState("expenses");
 
   const { data, isLoading } = useConvexQuery(
     api.expenses.getExpensesBetweenUsers,
