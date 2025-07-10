@@ -177,12 +177,12 @@ export const getGroupExpenses = query({
       userLookupMap[member.id] = member;
     });
 
-    return {
-      group: {
-        id: group._id,
-        name: group.name,
-        description: group.description,
-      },
+    // return {
+    //   group: {
+    //     id: group._id,
+    //     name: group.name,
+    //     description: group.description,
+    //   },
       members: memberDetails,
       expenses,
       settlements,
