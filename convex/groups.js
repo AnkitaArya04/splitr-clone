@@ -183,11 +183,11 @@ export const getGroupExpenses = query({
         name: group.name,
         description: group.description,
       },
-      // members: memberDetails,
-      // expenses,
-      // settlements,
-      // balances,
-      // userLookupMap,
+      members: memberDetails,
+      expenses,
+      settlements,
+      balances,
+      userLookupMap,
     };
   },
 });
