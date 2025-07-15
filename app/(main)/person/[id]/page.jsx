@@ -118,14 +118,14 @@ export default function PersonExpensesPage() {
         onValueChange={setActiveTab}
         className="space-y-4"
       >
-        {/* <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="expenses">
             Expenses ({expenses.length})
           </TabsTrigger>
           <TabsTrigger value="settlements">
             Settlements ({settlements.length})
           </TabsTrigger>
-        </TabsList> */}
+        </TabsList>
 
         <TabsContent value="expenses" className="space-y-4">
           <ExpenseList
